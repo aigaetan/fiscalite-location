@@ -1,1 +1,216 @@
-index.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateur de Fiscalité - Location Meublée vs Non Meublée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .info, .result {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            color: #388e3c;
+        }
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ad-banner {
+            text-align: center;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            position: relative;
+        }
+    </style>
+    <script>
+        function calculateFiscality(event) {
+            event.preventDefault();
+            const rent = parseFloat(document.getElementById('rent').value);
+
+            if (isNaN(rent) || rent <= 0) {
+                alert("Veuillez saisir un montant de loyer valide.");
+                return;
+            }
+
+            const microBIC = rent * 0.5; // Abattement 50% pour Micro-BIC
+            const microFoncier = rent * 0.7; // Abattement 30% pour Micro-Foncier
+
+            document.getElementById('result').innerHTML = `
+                <strong>Résultats :</strong><br>
+                <ul>
+                    <li>Revenu imposable en <strong>Location Meublée (Micro-BIC)</strong> : ${microBIC.toFixed(2)} €</li>
+                    <li>Revenu imposable en <strong>Location Non Meublée (Micro-Foncier)</strong> : ${microFoncier.toFixed(2)} €</li>
+                </ul>
+            `;
+        }
+    </script>
+    <!-- Script Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Comparateur de Fiscalité</h1>
+        <p>Comparez la fiscalité entre une location meublée et non meublée.</p>
+    </header>
+
+    <!-- Bannière publicitaire Google -->
+    <div class="ad-banner">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXX" 
+            data-ad-slot="1234567890"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container">
+        <h2>Comparaison des Régimes Fiscaux</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Critères</th>
+                    <th>Location Meublée</th>
+                    <th>Location Non Meublée</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Régime Fiscal</td>
+                    <td>LMNP (Micro-BIC ou Réel)</td>
+                    <td>Revenus Fonciers (Micro-Foncier ou Réel)</td>
+                </tr>
+                <tr>
+                    <td>Abattement Fiscal</td>
+                    <td>50% (Micro-BIC)</td>
+                    <td>30% (Micro-Foncier)</td>
+                </tr>
+                <tr>
+                    <td>Amortissements</td>
+                    <td>Oui (Régime Réel)</td>
+                    <td>Non</td>
+                </tr>
+                <tr>
+                    <td>Charges Déductibles</td>
+                    <td>Charges réelles (Régime Réel)</td>
+                    <td>Charges réelles (Régime Réel)</td>
+                </tr>
+                <tr>
+                    <td>Obligations</td>
+                    <td>Bien meublé aux normes</td>
+                    <td>Aucun équipement obligatoire</td>
+                </tr>
+                <tr>
+                    <td>Imposition des Plus-Values</td>
+                    <td>Régime des plus-values professionnelles</td>
+                    <td>Régime des plus-values des particuliers</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Bannière publicitaire Google -->
+        <div class="ad-banner">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXX" 
+                data-ad-slot="1234567891"
+                data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <form onsubmit="calculateFiscality(event)">
+            <h2>Simulateur de Revenu Imposable</h2>
+            <label for="rent">Montant mensuel du loyer (€) :</label>
+            <input type="number" id="rent" name="rent" placeholder="Exemple : 1200" required>
+            <button type="submit">Calculer</button>
+        </form>
+
+        <div class="result" id="result"></div>
+
+        <div class="info">
+            <strong>Astuce :</strong> La location meublée peut être plus avantageuse fiscalement dans certains cas, mais elle implique des obligations spécifiques. La location non meublée est souvent plus simple à gérer.
+        </div>
+    </div>
+
+    <!-- Bannière publicitaire Google -->
+    <div class="ad-banner">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXX" 
+            data-ad-slot="1234567892"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p>© 2025 Comparateur Fiscalité. Tous droits réservés.</p>
+    </footer>
+</body>
+  </html>
+  
